@@ -11854,7 +11854,7 @@ x-ibm-configuration:
     sb:
       properties:
         runtime-url: >-
-          https://apiconnect-facf6b2c-6eea-4051-8c4b-0fcc50de5ed3.ncsu-sr-design-proj-4-eeh-rest-security-api.apic.mybluemix.net/
+          https://apiconnect-facf6b2c-6eea-4051-8c4b-0fcc50de5ed3.ncsu-sr-design-proj-4-eeh-rest-security-api.apic.mybluemix.net
         invoke-tls-profile: 'client:Loopback-client'
   assembly:
     execute:
