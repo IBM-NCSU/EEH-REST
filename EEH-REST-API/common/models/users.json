@@ -20,14 +20,11 @@
     },
     "email": {
       "type": "string",
+      "id": true,
       "required": true
     },
     "emailVerified": {
       "type": "boolean",
-      "required": false
-    },
-    "id": {
-      "type": "number",
       "required": false
     },
     "lastUpdated": {
@@ -45,7 +42,7 @@
     },
     "username": {
       "type": "string",
-      "id": true,
+      "id": false,
       "required": true
     }
   },

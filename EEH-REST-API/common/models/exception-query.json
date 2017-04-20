@@ -16,13 +16,9 @@
     "end_timestamp": {
       "type": "string"
     },
-    "id": {
-      "type": "number",
-      "required": false
-    },
     "name": {
       "type": "string",
-      "id": true,
+      "id": false,
       "required": true
     },
     "notification": {
@@ -42,6 +38,7 @@
     },
     "user_id": {
       "type": "string",
+      "id": true,
       "required": true
     }
   },

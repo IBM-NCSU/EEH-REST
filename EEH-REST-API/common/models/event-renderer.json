@@ -10,18 +10,14 @@
     "eclipse_renderer": {
       "type": "string"
     },
-    "id": {
-      "type": "number",
-      "id": true,
-      "required": true
-    },
     "mobile_renderer": {
       "type": "string",
       "required": false
     },
     "web_renderer": {
       "type": "string",
-      "required": false
+      "id": true,
+      "required": true
     }
   },
   "validations": [],

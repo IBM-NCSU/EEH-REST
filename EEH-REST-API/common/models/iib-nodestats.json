@@ -18,13 +18,9 @@
       "id": false,
       "required": true
     },
-    "id": {
-      "type": "number",
-      "id": true,
-      "required": true
-    },
     "invocations": {
       "type": "string",
+      "id": true,
       "required": true
     },
     "max_cpu_time": {

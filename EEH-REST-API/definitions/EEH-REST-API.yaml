@@ -161,27 +161,6 @@ paths:
                 type: boolean
       deprecated: false
   '/Users/{id}':
-    head:
-      tags:
-        - Users
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'Users.exists__head_Users_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
     get:
       tags:
         - Users
@@ -535,27 +514,6 @@ paths:
                 type: boolean
       deprecated: false
   '/mqmds/{id}':
-    head:
-      tags:
-        - mqmd
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'mqmd.exists__head_mqmds_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
     get:
       tags:
         - mqmd
@@ -2338,6 +2296,7 @@ paths:
                 type: boolean
       deprecated: false
   '/appInfos/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - appInfo
@@ -2359,6 +2318,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - appInfo
@@ -2712,6 +2673,7 @@ paths:
                 type: boolean
       deprecated: false
   '/appQueries/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - appQuery
@@ -2733,6 +2695,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - appQuery
@@ -3086,6 +3050,7 @@ paths:
                 type: boolean
       deprecated: false
   '/catInfos/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - catInfo
@@ -3107,6 +3072,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - catInfo
@@ -3460,6 +3427,7 @@ paths:
                 type: boolean
       deprecated: false
   '/eventRenderers/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - eventRenderer
@@ -3481,6 +3449,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - eventRenderer
@@ -3834,6 +3804,7 @@ paths:
                 type: boolean
       deprecated: false
   '/exccatExcs/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - exccatExc
@@ -3855,6 +3826,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exccatExc
@@ -4208,6 +4181,7 @@ paths:
                 type: boolean
       deprecated: false
   '/exccatExcParms/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - exccatExcParm
@@ -4229,6 +4203,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exccatExcParm
@@ -4582,6 +4558,7 @@ paths:
                 type: boolean
       deprecated: false
   '/exches/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - exch
@@ -4603,6 +4580,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exch
@@ -4956,6 +4935,7 @@ paths:
                 type: boolean
       deprecated: false
   '/exchAppHeaders/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - exchAppHeader
@@ -4977,6 +4957,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exchAppHeader
@@ -5330,6 +5312,7 @@ paths:
                 type: boolean
       deprecated: false
   '/exchApplications/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - exchApplication
@@ -5351,6 +5334,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exchApplication
@@ -5704,6 +5689,7 @@ paths:
                 type: boolean
       deprecated: false
   '/exchDumps/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - exchDump
@@ -5725,6 +5711,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exchDump
@@ -6078,6 +6066,7 @@ paths:
                 type: boolean
       deprecated: false
   '/exchParms/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - exchParm
@@ -6099,6 +6088,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exchParm
@@ -6452,6 +6443,7 @@ paths:
                 type: boolean
       deprecated: false
   '/exchReQueues/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - exchReQueue
@@ -6473,6 +6465,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exchReQueue
@@ -6826,6 +6820,7 @@ paths:
                 type: boolean
       deprecated: false
   '/exchStacks/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - exchStack
@@ -6847,6 +6842,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exchStack
@@ -7200,6 +7197,7 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-Catalogs/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - iib-Catalog
@@ -7226,6 +7224,13 @@ paths:
         - iib-Catalog
       summary: 'Find a model instance by {{id}} from the data source.'
       operationId: iib-Catalog.findById
+=======
+    get:
+      tags:
+        - iib-Catalog
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: iib-Catalog.findById
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       parameters:
         - name: id
           in: path
@@ -7574,6 +7579,7 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-brokerInfos/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - iib-brokerInfo
@@ -7595,6 +7601,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-brokerInfo
@@ -7948,6 +7956,7 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-eventData/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - iib-eventData
@@ -7969,6 +7978,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-eventData
@@ -8322,6 +8333,7 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-flowInfos/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - iib-flowInfo
@@ -8343,6 +8355,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-flowInfo
@@ -8696,6 +8710,7 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-flowStats/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - iib-flowStats
@@ -8717,6 +8732,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-flowStats
@@ -9070,6 +9087,7 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-nodeInfos/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - iib-nodeInfo
@@ -9091,6 +9109,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-nodeInfo
@@ -9444,6 +9464,7 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-nodeStats/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - iib-nodeStats
@@ -9465,6 +9486,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-nodeStats
@@ -9818,6 +9841,7 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-serverInfos/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - iib-serverInfo
@@ -9839,6 +9863,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-serverInfo
@@ -10192,6 +10218,7 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-terminalStats/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - iib-terminalStats
@@ -10213,6 +10240,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-terminalStats
@@ -10567,6 +10596,7 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-threadStats/{id}':
+<<<<<<< HEAD
     head:
       tags:
         - iib-threadStats
@@ -10588,6 +10618,8 @@ paths:
               exists:
                 type: boolean
       deprecated: false
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-threadStats
@@ -10786,6 +10818,127 @@ paths:
                 type: number
                 format: double
       deprecated: false
+<<<<<<< HEAD
+=======
+  /ExceptionMessages:
+    post:
+      tags:
+        - ExceptionMessage
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: ExceptionMessage.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/ExceptionMessage'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ExceptionMessage'
+      deprecated: false
+    get:
+      tags:
+        - ExceptionMessage
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: ExceptionMessage.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ExceptionMessage'
+      deprecated: false
+  /ExceptionMessages/replaceOrCreate:
+    post:
+      tags:
+        - ExceptionMessage
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: ExceptionMessage.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/ExceptionMessage'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ExceptionMessage'
+      deprecated: false
+  /ExceptionMessages/upsertWithWhere:
+    post:
+      tags:
+        - ExceptionMessage
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: ExceptionMessage.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/ExceptionMessage'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ExceptionMessage'
+      deprecated: false
+  '/ExceptionMessages/{id}/replace':
+    post:
+      tags:
+        - ExceptionMessage
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: ExceptionMessage.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/ExceptionMessage'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ExceptionMessage'
+      deprecated: false
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
 definitions:
   Users:
     properties:
@@ -10799,9 +10952,12 @@ definitions:
         type: string
       emailVerified:
         type: boolean
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       lastUpdated:
         type: string
       realm:
@@ -10844,9 +11000,12 @@ definitions:
         type: string
       grpId:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       msgFlags:
         type: string
       msgId:
@@ -10876,7 +11035,10 @@ definitions:
       version:
         type: string
     required:
+<<<<<<< HEAD
       - id
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       - version
     additionalProperties: false
   App:
@@ -10887,9 +11049,12 @@ definitions:
         type: string
       Role:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - AppID
       - AppName
@@ -10901,9 +11066,12 @@ definitions:
         type: string
       Version:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - Catalog
       - Version
@@ -10918,9 +11086,12 @@ definitions:
         type: string
       Version:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - Catalog
       - Code
@@ -10936,9 +11107,12 @@ definitions:
         format: date
       UserEmail:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - CriteriaString
       - Timestamp
@@ -10966,9 +11140,12 @@ definitions:
         type: string
       global_txid:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       local_tx_name:
         type: string
       local_txid:
@@ -11017,9 +11194,12 @@ definitions:
         type: string
       global_txid:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       lib_name:
         type: string
       lib_uuid:
@@ -11059,9 +11239,12 @@ definitions:
         format: date
       event_uuid:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       start_timestamp:
         type: string
         format: date
@@ -11086,9 +11269,12 @@ definitions:
           type: string
       global_tx_name:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       local_tx_name:
         type: string
       parent_tx_name:
@@ -11115,9 +11301,12 @@ definitions:
         type: string
       exc_uuid:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       priority:
         type: number
         format: double
@@ -11159,9 +11348,12 @@ definitions:
       expiry:
         type: number
         format: double
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       version:
@@ -11191,9 +11383,12 @@ definitions:
         type: string
       exc_uuid:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       timestamp:
@@ -11214,9 +11409,12 @@ definitions:
         type: object
       end_timestamp:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       notification:
@@ -11262,9 +11460,12 @@ definitions:
         type: string
       hostname:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       line:
         type: string
       server:
@@ -11297,23 +11498,33 @@ definitions:
           type: string
       hostname:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       server:
         type: string
       server_cluster:
         type: string
     required:
+<<<<<<< HEAD
       - id
+=======
+      - hostname
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     additionalProperties: false
   catInfo:
     properties:
       descr:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       version:
@@ -11327,15 +11538,22 @@ definitions:
     properties:
       eclipse_renderer:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       mobile_renderer:
         type: string
       web_renderer:
         type: string
     required:
+<<<<<<< HEAD
       - id
+=======
+      - web_renderer
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     additionalProperties: false
   exccatExc:
     properties:
@@ -11347,9 +11565,12 @@ definitions:
         type: string
       descr:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       priority:
@@ -11365,9 +11586,12 @@ definitions:
     properties:
       descr:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
     required:
@@ -11394,9 +11618,12 @@ definitions:
         type: string
       exc_uuid:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       managed:
         type: boolean
       timestamp:
@@ -11420,9 +11647,12 @@ definitions:
           type: object
       header:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - Parameters
       - header
@@ -11459,9 +11689,12 @@ definitions:
         type: string
       hostname:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       line:
         type: string
       server:
@@ -11481,9 +11714,12 @@ definitions:
     properties:
       dump:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       type:
         type: string
     required:
@@ -11492,9 +11728,12 @@ definitions:
     additionalProperties: false
   exchParm:
     properties:
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       value:
@@ -11509,9 +11748,12 @@ definitions:
         type: object
       env:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       qmgr:
         type: string
       queue:
@@ -11529,16 +11771,22 @@ definitions:
         type: string
       function:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       line:
         type: string
     required:
       - class
       - file
       - function
+<<<<<<< HEAD
       - id
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       - line
     additionalProperties: false
   iib-Catalog:
@@ -11552,22 +11800,32 @@ definitions:
       Server:
         type: object
       id:
+<<<<<<< HEAD
         type: number
         format: double
+=======
+        type: string
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - Broker
       - Flow
       - Node
       - Server
+<<<<<<< HEAD
       - id
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     additionalProperties: false
   iib-brokerInfo:
     properties:
       descr:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       uuid:
@@ -11584,9 +11842,12 @@ definitions:
         type: string
       app_data_type:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - app_data_name
       - app_data_type
@@ -11595,9 +11856,12 @@ definitions:
     properties:
       descr:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       threadId:
@@ -11628,9 +11892,12 @@ definitions:
         type: string
       errors_total_processing:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       input_msg_max_size:
         type: string
       input_msg_min_size:
@@ -11670,7 +11937,10 @@ definitions:
       - errors_mq
       - errors_total_msg
       - errors_total_processing
+<<<<<<< HEAD
       - id
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       - input_msg_max_size
       - input_msg_min_size
       - input_msg_no
@@ -11693,9 +11963,12 @@ definitions:
         type: string
       detail:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       nodeLabel:
         type: string
       nodeType:
@@ -11714,9 +11987,12 @@ definitions:
         type: array
         items:
           type: object
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       invocations:
         type: string
       max_cpu_time:
@@ -11738,7 +12014,10 @@ definitions:
     required:
       - Node
       - TerminalStats
+<<<<<<< HEAD
       - id
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       - invocations
       - max_cpu_time
       - max_elapsed_time
@@ -11753,9 +12032,12 @@ definitions:
     properties:
       descr:
         type: string
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       uuid:
@@ -11766,9 +12048,12 @@ definitions:
     additionalProperties: false
   iib-terminalStats:
     properties:
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       invocations:
         type: string
       term_label:
@@ -11776,16 +12061,22 @@ definitions:
       term_type:
         type: string
     required:
+<<<<<<< HEAD
       - id
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       - invocations
       - term_label
       - term_type
     additionalProperties: false
   iib-threadStats:
     properties:
+<<<<<<< HEAD
       id:
         type: number
         format: double
+=======
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       input_msg_max_size:
         type: string
       input_msg_min_size:
@@ -11814,6 +12105,25 @@ definitions:
       - threadId
       - total_cpu_time
       - total_elapsed_time
+<<<<<<< HEAD
+=======
+    additionalProperties: false
+  ExceptionMessage:
+    properties:
+      ExceptionHeader:
+        type: object
+      descr:
+        type: string
+      exch_version:
+        type: string
+      name:
+        type: string
+    required:
+      - ExceptionHeader
+      - descr
+      - exch_version
+      - name
+>>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     additionalProperties: false
 basePath: /api
 swagger: '2.0'

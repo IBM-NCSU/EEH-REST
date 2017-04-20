@@ -21,10 +21,6 @@
     "global_tx_name": {
       "type": "string"
     },
-    "id": {
-      "type": "number",
-      "required": false
-    },
     "local_tx_name": {
       "type": "string"
     },
@@ -33,12 +29,12 @@
     },
     "query_name": {
       "type": "string",
-      "id": true,
+      "id": false,
       "required": true
     },
     "user_id": {
       "type": "string",
-      "id": false,
+      "id": true,
       "required": true
     }
   },
