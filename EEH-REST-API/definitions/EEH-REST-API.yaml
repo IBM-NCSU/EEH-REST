@@ -1,11 +1,4 @@
 paths:
-  /Users/oauth:
-    get:
-      responses:
-        '200':
-          description: 200 OK
-      summary: oauth trigger method
-      operationId: users.oauth
   /Users:
     post:
       tags:
@@ -2296,30 +2289,6 @@ paths:
                 type: boolean
       deprecated: false
   '/appInfos/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - appInfo
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'appInfo.exists__head_appInfos_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - appInfo
@@ -2673,30 +2642,6 @@ paths:
                 type: boolean
       deprecated: false
   '/appQueries/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - appQuery
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'appQuery.exists__head_appQueries_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - appQuery
@@ -3050,30 +2995,6 @@ paths:
                 type: boolean
       deprecated: false
   '/catInfos/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - catInfo
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'catInfo.exists__head_catInfos_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - catInfo
@@ -3427,30 +3348,6 @@ paths:
                 type: boolean
       deprecated: false
   '/eventRenderers/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - eventRenderer
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'eventRenderer.exists__head_eventRenderers_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - eventRenderer
@@ -3804,30 +3701,6 @@ paths:
                 type: boolean
       deprecated: false
   '/exccatExcs/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - exccatExc
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'exccatExc.exists__head_exccatExcs_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exccatExc
@@ -4181,30 +4054,6 @@ paths:
                 type: boolean
       deprecated: false
   '/exccatExcParms/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - exccatExcParm
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'exccatExcParm.exists__head_exccatExcParms_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exccatExcParm
@@ -4558,30 +4407,6 @@ paths:
                 type: boolean
       deprecated: false
   '/exches/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - exch
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'exch.exists__head_exches_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exch
@@ -4935,30 +4760,6 @@ paths:
                 type: boolean
       deprecated: false
   '/exchAppHeaders/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - exchAppHeader
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'exchAppHeader.exists__head_exchAppHeaders_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exchAppHeader
@@ -5312,30 +5113,6 @@ paths:
                 type: boolean
       deprecated: false
   '/exchApplications/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - exchApplication
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'exchApplication.exists__head_exchApplications_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exchApplication
@@ -5689,30 +5466,6 @@ paths:
                 type: boolean
       deprecated: false
   '/exchDumps/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - exchDump
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'exchDump.exists__head_exchDumps_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exchDump
@@ -6066,30 +5819,6 @@ paths:
                 type: boolean
       deprecated: false
   '/exchParms/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - exchParm
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'exchParm.exists__head_exchParms_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exchParm
@@ -6443,30 +6172,6 @@ paths:
                 type: boolean
       deprecated: false
   '/exchReQueues/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - exchReQueue
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'exchReQueue.exists__head_exchReQueues_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exchReQueue
@@ -6820,30 +6525,6 @@ paths:
                 type: boolean
       deprecated: false
   '/exchStacks/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - exchStack
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'exchStack.exists__head_exchStacks_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - exchStack
@@ -7197,40 +6878,11 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-Catalogs/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - iib-Catalog
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'iib-Catalog.exists__head_iib-Catalogs_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
     get:
       tags:
         - iib-Catalog
       summary: 'Find a model instance by {{id}} from the data source.'
       operationId: iib-Catalog.findById
-=======
-    get:
-      tags:
-        - iib-Catalog
-      summary: 'Find a model instance by {{id}} from the data source.'
-      operationId: iib-Catalog.findById
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       parameters:
         - name: id
           in: path
@@ -7579,30 +7231,6 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-brokerInfos/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - iib-brokerInfo
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'iib-brokerInfo.exists__head_iib-brokerInfos_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-brokerInfo
@@ -7956,30 +7584,6 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-eventData/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - iib-eventData
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'iib-eventData.exists__head_iib-eventData_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-eventData
@@ -8333,30 +7937,6 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-flowInfos/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - iib-flowInfo
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'iib-flowInfo.exists__head_iib-flowInfos_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-flowInfo
@@ -8710,30 +8290,6 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-flowStats/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - iib-flowStats
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'iib-flowStats.exists__head_iib-flowStats_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-flowStats
@@ -9087,30 +8643,6 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-nodeInfos/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - iib-nodeInfo
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'iib-nodeInfo.exists__head_iib-nodeInfos_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-nodeInfo
@@ -9464,30 +8996,6 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-nodeStats/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - iib-nodeStats
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'iib-nodeStats.exists__head_iib-nodeStats_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-nodeStats
@@ -9841,30 +9349,6 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-serverInfos/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - iib-serverInfo
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'iib-serverInfo.exists__head_iib-serverInfos_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-serverInfo
@@ -10218,30 +9702,6 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-terminalStats/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - iib-terminalStats
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'iib-terminalStats.exists__head_iib-terminalStats_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-terminalStats
@@ -10596,30 +10056,6 @@ paths:
                 type: boolean
       deprecated: false
   '/iib-threadStats/{id}':
-<<<<<<< HEAD
-    head:
-      tags:
-        - iib-threadStats
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'iib-threadStats.exists__head_iib-threadStats_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     get:
       tags:
         - iib-threadStats
@@ -10818,8 +10254,6 @@ paths:
                 type: number
                 format: double
       deprecated: false
-<<<<<<< HEAD
-=======
   /ExceptionMessages:
     post:
       tags:
@@ -10938,7 +10372,6 @@ paths:
           schema:
             $ref: '#/definitions/ExceptionMessage'
       deprecated: false
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
 definitions:
   Users:
     properties:
@@ -10952,12 +10385,6 @@ definitions:
         type: string
       emailVerified:
         type: boolean
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       lastUpdated:
         type: string
       realm:
@@ -11000,12 +10427,6 @@ definitions:
         type: string
       grpId:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       msgFlags:
         type: string
       msgId:
@@ -11035,10 +10456,6 @@ definitions:
       version:
         type: string
     required:
-<<<<<<< HEAD
-      - id
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       - version
     additionalProperties: false
   App:
@@ -11049,12 +10466,6 @@ definitions:
         type: string
       Role:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - AppID
       - AppName
@@ -11066,12 +10477,6 @@ definitions:
         type: string
       Version:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - Catalog
       - Version
@@ -11086,12 +10491,6 @@ definitions:
         type: string
       Version:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - Catalog
       - Code
@@ -11107,12 +10506,6 @@ definitions:
         format: date
       UserEmail:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - CriteriaString
       - Timestamp
@@ -11140,12 +10533,6 @@ definitions:
         type: string
       global_txid:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       local_tx_name:
         type: string
       local_txid:
@@ -11194,12 +10581,6 @@ definitions:
         type: string
       global_txid:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       lib_name:
         type: string
       lib_uuid:
@@ -11239,12 +10620,6 @@ definitions:
         format: date
       event_uuid:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       start_timestamp:
         type: string
         format: date
@@ -11269,12 +10644,6 @@ definitions:
           type: string
       global_tx_name:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       local_tx_name:
         type: string
       parent_tx_name:
@@ -11301,12 +10670,6 @@ definitions:
         type: string
       exc_uuid:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       priority:
         type: number
         format: double
@@ -11348,12 +10711,6 @@ definitions:
       expiry:
         type: number
         format: double
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       version:
@@ -11383,12 +10740,6 @@ definitions:
         type: string
       exc_uuid:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       timestamp:
@@ -11409,12 +10760,6 @@ definitions:
         type: object
       end_timestamp:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       notification:
@@ -11460,12 +10805,6 @@ definitions:
         type: string
       hostname:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       line:
         type: string
       server:
@@ -11498,33 +10837,17 @@ definitions:
           type: string
       hostname:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       server:
         type: string
       server_cluster:
         type: string
     required:
-<<<<<<< HEAD
-      - id
-=======
       - hostname
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     additionalProperties: false
   catInfo:
     properties:
       descr:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       version:
@@ -11538,22 +10861,12 @@ definitions:
     properties:
       eclipse_renderer:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       mobile_renderer:
         type: string
       web_renderer:
         type: string
     required:
-<<<<<<< HEAD
-      - id
-=======
       - web_renderer
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     additionalProperties: false
   exccatExc:
     properties:
@@ -11565,12 +10878,6 @@ definitions:
         type: string
       descr:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       priority:
@@ -11586,12 +10893,6 @@ definitions:
     properties:
       descr:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
     required:
@@ -11618,12 +10919,6 @@ definitions:
         type: string
       exc_uuid:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       managed:
         type: boolean
       timestamp:
@@ -11647,12 +10942,6 @@ definitions:
           type: object
       header:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - Parameters
       - header
@@ -11689,12 +10978,6 @@ definitions:
         type: string
       hostname:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       line:
         type: string
       server:
@@ -11714,12 +10997,6 @@ definitions:
     properties:
       dump:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       type:
         type: string
     required:
@@ -11728,12 +11005,6 @@ definitions:
     additionalProperties: false
   exchParm:
     properties:
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       value:
@@ -11748,12 +11019,6 @@ definitions:
         type: object
       env:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       qmgr:
         type: string
       queue:
@@ -11771,22 +11036,12 @@ definitions:
         type: string
       function:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       line:
         type: string
     required:
       - class
       - file
       - function
-<<<<<<< HEAD
-      - id
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       - line
     additionalProperties: false
   iib-Catalog:
@@ -11800,32 +11055,17 @@ definitions:
       Server:
         type: object
       id:
-<<<<<<< HEAD
-        type: number
-        format: double
-=======
         type: string
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - Broker
       - Flow
       - Node
       - Server
-<<<<<<< HEAD
-      - id
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     additionalProperties: false
   iib-brokerInfo:
     properties:
       descr:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       uuid:
@@ -11842,12 +11082,6 @@ definitions:
         type: string
       app_data_type:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     required:
       - app_data_name
       - app_data_type
@@ -11856,12 +11090,6 @@ definitions:
     properties:
       descr:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       threadId:
@@ -11892,12 +11120,6 @@ definitions:
         type: string
       errors_total_processing:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       input_msg_max_size:
         type: string
       input_msg_min_size:
@@ -11937,10 +11159,6 @@ definitions:
       - errors_mq
       - errors_total_msg
       - errors_total_processing
-<<<<<<< HEAD
-      - id
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       - input_msg_max_size
       - input_msg_min_size
       - input_msg_no
@@ -11963,12 +11181,6 @@ definitions:
         type: string
       detail:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       nodeLabel:
         type: string
       nodeType:
@@ -11987,12 +11199,6 @@ definitions:
         type: array
         items:
           type: object
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       invocations:
         type: string
       max_cpu_time:
@@ -12014,10 +11220,6 @@ definitions:
     required:
       - Node
       - TerminalStats
-<<<<<<< HEAD
-      - id
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       - invocations
       - max_cpu_time
       - max_elapsed_time
@@ -12032,12 +11234,6 @@ definitions:
     properties:
       descr:
         type: string
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       name:
         type: string
       uuid:
@@ -12048,12 +11244,6 @@ definitions:
     additionalProperties: false
   iib-terminalStats:
     properties:
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       invocations:
         type: string
       term_label:
@@ -12061,22 +11251,12 @@ definitions:
       term_type:
         type: string
     required:
-<<<<<<< HEAD
-      - id
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       - invocations
       - term_label
       - term_type
     additionalProperties: false
   iib-threadStats:
     properties:
-<<<<<<< HEAD
-      id:
-        type: number
-        format: double
-=======
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
       input_msg_max_size:
         type: string
       input_msg_min_size:
@@ -12105,8 +11285,6 @@ definitions:
       - threadId
       - total_cpu_time
       - total_elapsed_time
-<<<<<<< HEAD
-=======
     additionalProperties: false
   ExceptionMessage:
     properties:
@@ -12123,7 +11301,6 @@ definitions:
       - descr
       - exch_version
       - name
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
     additionalProperties: false
 basePath: /api
 swagger: '2.0'
@@ -12148,14 +11325,6 @@ consumes:
 produces:
   - application/json
 securityDefinitions:
-  oauth:
-    type: oauth2
-    description: ''
-    flow: implicit
-    authorizationUrl: >-
-      https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/eeh-oauth/oauth2/authorize
-    scopes:
-      Users: Allows access to Users
   clientIdHeader:
     type: apiKey
     in: header
@@ -12167,8 +11336,6 @@ securityDefinitions:
 security:
   - clientIdHeader: []
     clientSecretHeader: []
-    oauth:
-      - Users
 x-ibm-configuration:
   testable: true
   enforced: true

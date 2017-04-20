@@ -164,12 +164,9 @@
   "iib-threadStats": {
     "dataSource": "EEH-REST-IIB-THREADSTATS",
     "public": true
-<<<<<<< HEAD
-=======
   },
   "ExceptionMessage": {
     "dataSource": "EEH-REST-EXCEPTION-MESSAGE",
     "public": true
->>>>>>> e3895f2b7707c3947b15a6e6d4471cee7bfd35c3
   }
 }
