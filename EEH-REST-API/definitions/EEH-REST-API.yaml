@@ -1,4 +1,11 @@
 paths:
+  /Users/oauth:
+    get:
+      responses:
+        '200':
+          description: 200 OK
+      summary: oauth trigger method
+      operationId: users.oauth
   /Users:
     post:
       tags:
@@ -11831,6 +11838,14 @@ consumes:
 produces:
   - application/json
 securityDefinitions:
+  oauth:
+    type: oauth2
+    description: ''
+    flow: implicit
+    authorizationUrl: >-
+      https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/eeh-oauth/oauth2/authorize
+    scopes:
+      Users: Allows access to Users
   clientIdHeader:
     type: apiKey
     in: header
@@ -11842,6 +11857,8 @@ securityDefinitions:
 security:
   - clientIdHeader: []
     clientSecretHeader: []
+    oauth:
+      - Users
 x-ibm-configuration:
   testable: true
   enforced: true
