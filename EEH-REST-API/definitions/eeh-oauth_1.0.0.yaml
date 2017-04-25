@@ -6,7 +6,7 @@ info:
 schemes:
   - https
 host: $(catalog.host)
-basePath: /eeh-oauth
+basePath: /oauth-end
 securityDefinitions:
   clientID:
     description: application's client_id
@@ -40,7 +40,7 @@ paths:
           in: query
           description: Scope being requested
           type: string
-          required: true
+          required: false
         - name: redirect_uri
           in: query
           type: string
@@ -264,7 +264,7 @@ x-ibm-configuration:
   oauth2:
     client-type: public
     scopes:
-      Users: Allows access to view Users
+      Users: Allows scope into Users
     grants:
       - implicit
     identity-extraction:
