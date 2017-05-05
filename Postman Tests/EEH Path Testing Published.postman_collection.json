@@ -1,0 +1,6075 @@
+{
+	"variables": [],
+	"info": {
+		"name": "EEH-REST Tests - Published",
+		"_postman_id": "ced7d013-d5ba-d2e5-e8dc-39d65b8c95a7",
+		"description": "Tests for EEH REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Criteria-Tests",
+			"description": "",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/Criteria",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"Timestamp\": \"2017-03-29\",\r\n    \"CriteriaString\": \"new2\",\r\n    \"UserEmail\": \"new\",\r\n    \"id\": 5052\r\n  }\r\n"
+						},
+						"description": "Primary Key: CriteriaString"
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains Timestamp\"] = responseBody.has(\"Timestamp\");",
+									"    tests[\"Contains CriteriaString\"] = responseBody.has(\"CriteriaString\");",
+									"    tests[\"Contains UserEmail\"] = responseBody.has(\"UserEmail\");",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Response time is less than 300ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/Criteria",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"    tests[\"Response time is less than 300ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/Criteria",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CriteriaString\": \"new2\",\n    \"Timestamp\": \"2017-03-29T00:00:00.000Z\",\n    \"UserEmail\": \"testing\",\n    \"id\": 5050\n  }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"    tests[\"Response time is less than 300ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/Criteria",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CriteriaString\": \"new2\",\r\n    \"Timestamp\": \"2017-03-29T00:00:00.000Z\",\r\n    \"UserEmail\": \"testing\",\r\n    \"id\": 5050\r\n  }\r\n"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EventQueries-Tests",
+			"description": "",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/EventQueries",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"event_name\":\"Belle Davidson\",\n  \"exc_query_name\":\"Mildred Blake\",\n  \"fields\":[\"iwega\"],\n  \"global_tx_name\":\"Lottie Lowe\",\n  \"local_tx_name\":\"Rachel Ryan\",\n  \"parent_tx_name\":\"Mark Alvarez\",\n  \"query_name\":\"Albert Jones\",\n  \"user_id\":\"Celia\",\n  \"id\":46.44251158\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source. copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"    tests[\"Response time is less than 300ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}",
+									"",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/EventQueries",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"event_name\":\"Belle Davidson\",\n  \"exc_query_name\":\"Mildred Blake\",\n  \"fields\":[\"iwega\"],\n  \"global_tx_name\":\"Lottie Lowe\",\n  \"local_tx_name\":\"Rachel Ryan\",\n  \"parent_tx_name\":\"Mark Alvarez\",\n  \"query_name\":\"Albert Jones\",\n  \"user_id\":\"test\",\n  \"id\":46.44251158\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"    tests[\"Response time is less than 300ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/EventQueries",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"event_name\":\"Belle Davidson\",\n  \"exc_query_name\":\"Mildred Blake\",\n  \"fields\":[\"iwega\"],\n  \"global_tx_name\":\"Lottie Lowe\",\n  \"local_tx_name\":\"Rachel Ryan\",\n  \"parent_tx_name\":\"Mark Alvarez\",\n  \"query_name\":\"Albert Jones\",\n  \"user_id\":\"test\",\n  \"id\":46.44251158\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains event_name\"] = responseBody.has(\"event_name\");",
+									"    tests[\"Contains exc_query_name\"] = responseBody.has(\"exc_query_name\");",
+									"    tests[\"Contains fields\"] = responseBody.has(\"fields\");",
+									"    tests[\"Contains global_tx_name\"] = responseBody.has(\"global_tx_name\");",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Contains local_tx_name\"] = responseBody.has(\"local_tx_name\");",
+									"    tests[\"Contains parent_tx_name\"] = responseBody.has(\"parent_tx_name\");",
+									"    tests[\"Contains query_name \"] = responseBody.has(\"query_name\");",
+									"    tests[\"Contains user_id\"] = responseBody.has(\"user_id\");",
+									"    tests[\"Response time is less than 200ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"    ",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/EventQueries?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a model instance by {{id}} from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains count\"] = responseBody.has(\"count\");",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/EventQueries/Albert Jones",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ExceptionMessages-Tests",
+			"description": "",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/ExceptionMessages",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ExceptionHeader\":{\"id\":2591941189435392},\n  \"descr\":\"Avwij uvogug zues filwazbu enrah pad be eppuhsa utji lecku alemi nigcaviw lefobhaz kes na.\",\n  \"exch_version\":\"newuw\",\n  \"name\":\"Ella Welch\",\n  \"id\":30.46595049\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains ExceptionHeader\"] = responseBody.has(\"ExceptionHeader\");",
+									"    tests[\"Contains descr\"] = responseBody.has(\"descr\");",
+									"    tests[\"Contains exch_version\"] = responseBody.has(\"exch_version\");",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Contains name\"] = responseBody.has(\"name\");",
+									"    tests[\"Response time is less than 300ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/ExceptionMessages?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ExceptionQueries-Tests",
+			"description": "",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/ExceptionQueries",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AppQuery\":{\"id\":2396109867581440},\n  \"Catalog\":{\"id\":7738849176322048},\n  \"end_timestamp\":\"1146714387\",\n  \"name\":\"Cynthia Cooper\",\n  \"notification\":true,\n  \"notification_duration\":71.12224596,\n  \"past_hours\":84.21808726,\n  \"priority\":83.33230592,\n  \"start_timestamp\":\"368574512\",\n  \"user_id\":\"Joel\",\n  \"id\":1.40575196\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Replace attributes for a model instance and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 500 because cloudant doesn't support replaceById function\"] = responseCode.code === 500;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": {
+							"raw": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/ExceptionQueries/:id/replace",
+							"protocol": "https",
+							"auth": {},
+							"host": [
+								"api",
+								"us",
+								"apiconnect",
+								"ibmcloud",
+								"com"
+							],
+							"path": [
+								"ncsu-sr-design-proj-4-eeh-rest-security-api",
+								"sb",
+								"api",
+								"ExceptionQueries",
+								":id",
+								"replace"
+							],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AppQuery\":{\"id\":2396109867581440},\n  \"Catalog\":{\"id\":7738849176322048},\n  \"end_timestamp\":\"1146714387\",\n  \"name\":\"Cynthia Cooper\",\n  \"notification\":true,\n  \"notification_duration\":71.12224596,\n  \"past_hours\":84.21808726,\n  \"priority\":83.33230592,\n  \"start_timestamp\":\"368574512\",\n  \"user_id\":\"Joel\",\n  \"id\":1.40575196\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"      ",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/ExceptionQueries",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AppQuery\":{\"id\":2396109867581440},\n  \"Catalog\":{\"id\":7738849176322048},\n  \"end_timestamp\":\"1146714387\",\n  \"name\":\"Cynthia Cooper\",\n  \"notification\":true,\n  \"notification_duration\":71.12224596,\n  \"past_hours\":84.21808726,\n  \"priority\":83.33230592,\n  \"start_timestamp\":\"368574512\",\n  \"user_id\":\"Joel\",\n  \"id\":1.40575196\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/ExceptionQueries",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AppQuery\":{\"id\":2396109867581440},\n  \"Catalog\":{\"id\":7738849176322048},\n  \"end_timestamp\":\"1146714387\",\n  \"name\":\"Cynthia Cooper\",\n  \"notification\":true,\n  \"notification_duration\":71.12224596,\n  \"past_hours\":84.21808726,\n  \"priority\":83.33230592,\n  \"start_timestamp\":\"368574512\",\n  \"user_id\":\"Joel\",\n  \"id\":1.40575196\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/ExceptionQueries?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a model instance by {{id}} from the data source.",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/ExceptionQueries/Cynthia Cooper",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iib-Catalogs -Tests",
+			"description": "Folder for iib-Catalogs",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-Catalogs",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Broker\":{\"id\":4693473391280128},\n  \"Flow\":{\"id\":2383768950145024},\n  \"Node\":{\"id\":6524978128224256},\n  \"Server\":{\"id\":699351284318208},\n  \"id\":30.70010082\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-Catalogs",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Broker\":{\"id\":4693473391280128},\n  \"Flow\":{\"id\":2383768950145024},\n  \"Node\":{\"id\":6524978128224256},\n  \"Server\":{\"id\":699351284318208},\n  \"id\":30.70010082\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-Catalogs",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Broker\":{\"id\":4693473391280128},\n  \"Flow\":{\"id\":2383768950145024},\n  \"Node\":{\"id\":6524978128224256},\n  \"Server\":{\"id\":699351284318208},\n  \"id\":30.70010082\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains Broker\"] = responseBody.has(\"Broker\");",
+									"    tests[\"Contains Flow\"] = responseBody.has(\"Flow\");",
+									"    tests[\"Contains Node\"] = responseBody.has(\"Node\");",
+									"    tests[\"Contains Server\"] = responseBody.has(\"Server\");",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Response time is less than 300ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-Catalogs?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether a model instance exists in the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Exists\"] = responseBody.has(\"true\");",
+									"    tests[\"Response time is less than 300ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-Catalogs/30.70010082/exists",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-Catalogs/count?where={\"id\": \"30.70010082\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a model instance by {{id}} from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-Catalogs/30.70010082",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"count should be 0\"] = responseBody.has(\"0\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-Catalogs/count?where={\"id\": \"30.70010082\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iib-brokerInfos-Tests",
+			"description": "Folder for iib-brokerInfos",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-brokerInfos",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descr\":\"Punzaju wiwpivpeh ohve nodgouzi latgiw socesar gir eclurif sis sa zakguvu dadzemvo upunukmu.\",\n  \"name\":\"Rosetta Griffith\",\n  \"uuid\":\"3112468196884480\",\n  \"id\":69.26607457\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-brokerInfos",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descr\":\"Punzaju wiwpivpeh ohve nodgouzi latgiw socesar gir eclurif sis sa zakguvu dadzemvo upunukmu.\",\n  \"name\":\"Rosetta Griffith\",\n  \"uuid\":\"3112468196884480\",\n  \"id\":69.26607457\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-brokerInfos",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descr\":\"Punzaju wiwpivpeh ohve nodgouzi latgiw socesar gir eclurif sis sa zakguvu dadzemvo upunukmu.\",\n  \"name\":\"Rosetta Griffith\",\n  \"uuid\":\"3112468196884480\",\n  \"id\":69.26607457\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains descr\"] = responseBody.has(\"descr\");",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Contains name\"] = responseBody.has(\"name\");",
+									"    tests[\"Contains uuid\"] = responseBody.has(\"uuid\");",
+									"    tests[\"Response time is less than 200ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-brokerInfos?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether a model instance exists in the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Exists\"] = responseBody.has(\"true\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-brokerInfos/Rosetta Griffith/exists",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-brokerInfos/count?where={\"name\": \"Rosetta Griffith\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a model instance by {{id}} from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-brokerInfos/Rosetta Griffith",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"count should be 0\"] = responseBody.has(\"0\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-brokerInfos/count?where={{where}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iib-eventData-Tests",
+			"description": "Folder for iib-eventData",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-eventData",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"app_data_name\":\"Emilie Swanson\",\n  \"app_data_namespace\":\"Martin Carlson\",\n  \"app_data_type\":\"piltaiz\",\n  \"id\":16.20195391\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-eventData",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"app_data_name\":\"Emilie Swanson\",\n  \"app_data_namespace\":\"Martin Carlson\",\n  \"app_data_type\":\"piltaiz\",\n  \"id\":16.20195391\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-eventData",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"app_data_name\":\"Emilie Swanson\",\n  \"app_data_namespace\":\"Martin Carlson\",\n  \"app_data_type\":\"piltaiz\",\n  \"id\":16.20195391\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains app_data_name\"] = responseBody.has(\"app_data_name\");",
+									"    tests[\"Contains app_data_namespace\"] = responseBody.has(\"app_data_namespace\");",
+									"    tests[\"Contains app_data_type\"] = responseBody.has(\"app_data_type\");",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Response time is less than 200ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-eventData?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether a model instance exists in the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Exists\"] = responseBody.has(\"true\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-eventData/Emilie Swanson/exists",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-eventData/count?where={\"app_data_name\": \"Emilie Swanson\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a model instance by {{id}} from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-eventData/Emilie Swanson",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"count should be 0\"] = responseBody.has(\"0\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-eventData/count?where={\"app_data_name\": \"Emilie Swanson\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iib-flowInfos-Tests",
+			"description": "Folder for iib-flowInfos",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowInfos",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descr\":\"Culimu fi su gimwadaru ocarofci uhe jupam kefkazbi lo secipat mazwid biz notka iwkupe attizga oneefi vi mazojuvu.\",\n  \"name\":\"Virginia Ballard\",\n  \"threadId\":\"1752643141632000\",\n  \"uuid\":\"2859445996486656\",\n  \"id\":12.07877074\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowInfos",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descr\":\"Culimu fi su gimwadaru ocarofci uhe jupam kefkazbi lo secipat mazwid biz notka iwkupe attizga oneefi vi mazojuvu.\",\n  \"name\":\"Virginia Ballard\",\n  \"threadId\":\"1752643141632000\",\n  \"uuid\":\"2859445996486656\",\n  \"id\":12.07877074\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowInfos",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descr\":\"Culimu fi su gimwadaru ocarofci uhe jupam kefkazbi lo secipat mazwid biz notka iwkupe attizga oneefi vi mazojuvu.\",\n  \"name\":\"Virginia Ballard\",\n  \"threadId\":\"1752643141632000\",\n  \"uuid\":\"2859445996486656\",\n  \"id\":12.07877074\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains descr\"] = responseBody.has(\"descr\");",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Contains name\"] = responseBody.has(\"name\");",
+									"    tests[\"Contains threadId\"] = responseBody.has(\"threadId\");",
+									"    tests[\"Contains uuid\"] = responseBody.has(\"uuid\");",
+									"    tests[\"Response time is less than 200ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowInfos?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether a model instance exists in the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Exists\"] = responseBody.has(\"true\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowInfos/1752643141632000/exists",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowInfos/count?where={\"threadId\": \"1752643141632000\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a model instance by {{id}} from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowInfos/1752643141632000",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"count should be 0\"] = responseBody.has(\"0\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowInfos/count?where={\"threadId\": \"1752643141632000\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iib-flowStats-Tests",
+			"description": "Folder for iib-flowStats",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowStats",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Flow\":{\"id\":444638693425152},\n  \"ThreadStats\":[{\"id\":8063898565476352}],\n  \"accounting_origin\":\"6218585524405532\",\n  \"backout_count\":\"tadavu\",\n  \"commit_count\":\"bigoi\",\n  \"errors_mq\":\"sinwiifd\",\n  \"errors_total_msg\":\"siikbie\",\n  \"errors_total_processing\":\"gosef\",\n  \"input_msg_max_size\":\"hodil\",\n  \"input_msg_min_size\":\"kinsomu\",\n  \"input_msg_no\":\"devuwodi\",\n  \"input_msg_total_size\":\"hivohzi\",\n  \"input_wait_cpu_time\":\"3:0\",\n  \"input_wait_elapsed_time\":\"9:32\",\n  \"max_cpu_time\":\"17:29\",\n  \"max_elapsed_time\":\"13:40\",\n  \"min_cpu_time\":\"3:56\",\n  \"min_elapsed_time\":\"0:16\",\n  \"threads_max_reached\":\"bifnubir\",\n  \"threads_pool_size\":\"ehculwi\",\n  \"timeout_agregession\":\"12:22\",\n  \"total_cpu_time\":\"8:19\",\n  \"total_elapsed_time\":\"5:41\",\n  \"id\":54.27669638\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowStats",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Flow\":{\"id\":444638693425152},\n  \"ThreadStats\":[{\"id\":8063898565476352}],\n  \"accounting_origin\":\"6218585524405532\",\n  \"backout_count\":\"tadavu\",\n  \"commit_count\":\"bigoi\",\n  \"errors_mq\":\"sinwiifd\",\n  \"errors_total_msg\":\"siikbie\",\n  \"errors_total_processing\":\"gosef\",\n  \"input_msg_max_size\":\"hodil\",\n  \"input_msg_min_size\":\"kinsomu\",\n  \"input_msg_no\":\"devuwodi\",\n  \"input_msg_total_size\":\"hivohzi\",\n  \"input_wait_cpu_time\":\"3:0\",\n  \"input_wait_elapsed_time\":\"9:32\",\n  \"max_cpu_time\":\"17:29\",\n  \"max_elapsed_time\":\"13:40\",\n  \"min_cpu_time\":\"3:56\",\n  \"min_elapsed_time\":\"0:16\",\n  \"threads_max_reached\":\"bifnubir\",\n  \"threads_pool_size\":\"ehculwi\",\n  \"timeout_agregession\":\"12:22\",\n  \"total_cpu_time\":\"8:19\",\n  \"total_elapsed_time\":\"5:41\",\n  \"id\":54.27669638\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowStats",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Flow\":{\"id\":444638693425152},\n  \"ThreadStats\":[{\"id\":8063898565476352}],\n  \"accounting_origin\":\"6218585524405532\",\n  \"backout_count\":\"tadavu\",\n  \"commit_count\":\"bigoi\",\n  \"errors_mq\":\"sinwiifd\",\n  \"errors_total_msg\":\"siikbie\",\n  \"errors_total_processing\":\"gosef\",\n  \"input_msg_max_size\":\"hodil\",\n  \"input_msg_min_size\":\"kinsomu\",\n  \"input_msg_no\":\"devuwodi\",\n  \"input_msg_total_size\":\"hivohzi\",\n  \"input_wait_cpu_time\":\"3:0\",\n  \"input_wait_elapsed_time\":\"9:32\",\n  \"max_cpu_time\":\"17:29\",\n  \"max_elapsed_time\":\"13:40\",\n  \"min_cpu_time\":\"3:56\",\n  \"min_elapsed_time\":\"0:16\",\n  \"threads_max_reached\":\"bifnubir\",\n  \"threads_pool_size\":\"ehculwi\",\n  \"timeout_agregession\":\"12:22\",\n  \"total_cpu_time\":\"8:19\",\n  \"total_elapsed_time\":\"5:41\",\n  \"id\":54.27669638\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains Flow\"] = responseBody.has(\"Flow\");",
+									"    tests[\"Contains ThreadStats\"] = responseBody.has(\"ThreadStats\");",
+									"    tests[\"Contains accounting_origin\"] = responseBody.has(\"accounting_origin\");",
+									"    tests[\"Contains backout_count\"] = responseBody.has(\"backout_count\");",
+									"    tests[\"Contains commit_count\"] = responseBody.has(\"commit_count\");",
+									"    tests[\"Contains errors_mq\"] = responseBody.has(\"errors_mq\");",
+									"    tests[\"Contains errors_total_msg\"] = responseBody.has(\"errors_total_msg\");",
+									"    tests[\"Contains errors_total_processing\"] = responseBody.has(\"errors_total_processing\");",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Contains input_msg_max_size\"] = responseBody.has(\"input_msg_max_size\");",
+									"    tests[\"Contains input_msg_min_size\"] = responseBody.has(\"input_msg_min_size\");",
+									"    tests[\"Contains input_msg_no\"] = responseBody.has(\"input_msg_no\");",
+									"    tests[\"Contains input_msg_total_size\"] = responseBody.has(\"input_msg_total_size\");",
+									"    tests[\"Contains input_wait_cpu_time\"] = responseBody.has(\"input_wait_cpu_time\");",
+									"    tests[\"Contains input_wait_elapsed_time\"] = responseBody.has(\"input_wait_elapsed_time\");",
+									"    tests[\"Contains max_cpu_time\"] = responseBody.has(\"max_cpu_time\");",
+									"    tests[\"Contains max_elapsed_time\"] = responseBody.has(\"max_elapsed_time\");",
+									"    tests[\"Contains min_cpu_time\"] = responseBody.has(\"min_cpu_time\");",
+									"    tests[\"Contains min_elapsed_time\"] = responseBody.has(\"min_elapsed_time\");",
+									"    tests[\"Contains threads_max_reached\"] = responseBody.has(\"threads_max_reached\");",
+									"    tests[\"Contains threads_pool_size\"] = responseBody.has(\"threads_pool_size\");",
+									"    tests[\"Contains timeout_agregession\"] = responseBody.has(\"timeout_agregession\");",
+									"    tests[\"Contains total_cpu_time\"] = responseBody.has(\"total_cpu_time\");",
+									"    tests[\"Contains total_elapsed_time\"] = responseBody.has(\"total_elapsed_time\");",
+									"    tests[\"Response time is less than 200ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowStats?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether a model instance exists in the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Exists\"] = responseBody.has(\"true\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowStats/bigoi/exists",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowStats/count?where={\"commit_count\":\"bigoi\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a model instance by {{id}} from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowStats/bigoi",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"count should be 0\"] = responseBody.has(\"0\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-flowStats/count?where={\"commit_count\":\"bigoi\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iib-nodeInfos-Tests",
+			"description": "Folder for iib-nodeInfos",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeInfos",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descr\":\"Jas zunifuc gunuj dijiv janaf hi loh bahmowi efjur fu go hohus lifratla.\",\n  \"detail\":\"uhrepeje\",\n  \"nodeLabel\":\"gowco\",\n  \"nodeType\":\"fovofete\",\n  \"terminal\":\"epfeg\",\n  \"id\":54.82413799\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeInfos",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descr\":\"Jas zunifuc gunuj dijiv janaf hi loh bahmowi efjur fu go hohus lifratla.\",\n  \"detail\":\"uhrepeje\",\n  \"nodeLabel\":\"gowco\",\n  \"nodeType\":\"fovofete\",\n  \"terminal\":\"epfeg\",\n  \"id\":54.82413799\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeInfos",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descr\":\"Jas zunifuc gunuj dijiv janaf hi loh bahmowi efjur fu go hohus lifratla.\",\n  \"detail\":\"uhrepeje\",\n  \"nodeLabel\":\"gowco\",\n  \"nodeType\":\"fovofete\",\n  \"terminal\":\"epfeg\",\n  \"id\":54.82413799\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains descr\"] = responseBody.has(\"descr\");",
+									"    tests[\"Contains detail\"] = responseBody.has(\"detail\");",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Contains nodeLabel\"] = responseBody.has(\"nodeLabel\");",
+									"    tests[\"Contains nodeType\"] = responseBody.has(\"nodeType\");",
+									"    tests[\"Contains terminal\"] = responseBody.has(\"terminal\");",
+									"    tests[\"Response time is less than 200ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeInfos?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether a model instance exists in the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Exists\"] = responseBody.has(\"true\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeInfos/gowco/exists",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeInfos/count?where={\"nodeLabel\": \"gowco\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a model instance by {{id}} from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeInfos/gowco",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"count should be 0\"] = responseBody.has(\"0\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeInfos/count?where={\"nodeLabel\": \"gowco\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iib-nodeStats-Tests",
+			"description": "Folder for iib-nodeStats",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeStats",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Node\":{\"id\":6679064133763072},\n  \"TerminalStats\":[{\"id\":6785705562865664}],\n  \"invocations\":\"niejcull\",\n  \"max_cpu_time\":\"6:26\",\n  \"max_elapsed_time\":\"16:37\",\n  \"min_cpu_time\":\"19:16\",\n  \"min_elapsed_time\":\"14:9\",\n  \"term_input_count\":\"fezi\",\n  \"term_output_count\":\"atjuda\",\n  \"total_cpu_time\":\"23:46\",\n  \"total_elapsed_time\":\"16:44\",\n  \"id\":27.36822266\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeStats",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Node\":{\"id\":6679064133763072},\n  \"TerminalStats\":[{\"id\":6785705562865664}],\n  \"invocations\":\"niejcull\",\n  \"max_cpu_time\":\"6:26\",\n  \"max_elapsed_time\":\"16:37\",\n  \"min_cpu_time\":\"19:16\",\n  \"min_elapsed_time\":\"14:9\",\n  \"term_input_count\":\"fezi\",\n  \"term_output_count\":\"atjuda\",\n  \"total_cpu_time\":\"23:46\",\n  \"total_elapsed_time\":\"16:44\",\n  \"id\":27.36822266\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeStats",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Node\":{\"id\":6679064133763072},\n  \"TerminalStats\":[{\"id\":6785705562865664}],\n  \"invocations\":\"niejcull\",\n  \"max_cpu_time\":\"6:26\",\n  \"max_elapsed_time\":\"16:37\",\n  \"min_cpu_time\":\"19:16\",\n  \"min_elapsed_time\":\"14:9\",\n  \"term_input_count\":\"fezi\",\n  \"term_output_count\":\"atjuda\",\n  \"total_cpu_time\":\"23:46\",\n  \"total_elapsed_time\":\"16:44\",\n  \"id\":27.36822266\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains Node\"] = responseBody.has(\"Node\");",
+									"    tests[\"Contains TerminalStats\"] = responseBody.has(\"TerminalStats\");",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Contains invocations\"] = responseBody.has(\"invocations\");",
+									"    tests[\"Contains max_cpu_time\"] = responseBody.has(\"max_cpu_time\");",
+									"    tests[\"Contains max_elapsed_time\"] = responseBody.has(\"max_elapsed_time\");",
+									"    tests[\"Contains min_cpu_time\"] = responseBody.has(\"min_cpu_time\");",
+									"    tests[\"Contains min_elapsed_time\"] = responseBody.has(\"min_elapsed_time\");",
+									"    tests[\"Contains term_input_count\"] = responseBody.has(\"term_input_count\");",
+									"    tests[\"Contains term_output_count\"] = responseBody.has(\"term_output_count\");",
+									"    tests[\"Contains total_cpu_time\"] = responseBody.has(\"total_cpu_time\");",
+									"    tests[\"Contains total_elapsed_time\"] = responseBody.has(\"total_elapsed_time\");",
+									"    tests[\"Response time is less than 200ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeStats?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether a model instance exists in the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Exists\"] = responseBody.has(\"true\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeStats/niejcull/exists",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeStats/count?where={\"invocations\":\"niejcull\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a model instance by {{id}} from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeStats/niejcull",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"count should be 0\"] = responseBody.has(\"0\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-nodeStats/count?where={\"invocations\":\"niejcull\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iib-serverInfos-Tests",
+			"description": "Folder for iib-serverInfos",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-serverInfos",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descr\":\"Sod hovad wu lu rekepgo si bugli adlebub waz lukit vogdahsit bi.\",\n  \"name\":\"Larry Salazar\",\n  \"uuid\":\"4888927410323456\",\n  \"id\":83.61332633\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-serverInfos",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descr\":\"Sod hovad wu lu rekepgo si bugli adlebub waz lukit vogdahsit bi.\",\n  \"name\":\"Larry Salazar\",\n  \"uuid\":\"4888927410323456\",\n  \"id\":83.61332633\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-serverInfos",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descr\":\"Sod hovad wu lu rekepgo si bugli adlebub waz lukit vogdahsit bi.\",\n  \"name\":\"Larry Salazar\",\n  \"uuid\":\"4888927410323456\",\n  \"id\":83.61332633\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains descr\"] = responseBody.has(\"descr\");",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Contains name\"] = responseBody.has(\"name\");",
+									"    tests[\"Contains uuid\"] = responseBody.has(\"uuid\");",
+									"    tests[\"Response time is less than 200ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-serverInfos?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether a model instance exists in the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Exists\"] = responseBody.has(\"true\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-serverInfos/4888927410323456/exists",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-serverInfos/count?where={\"uuid\": \"4888927410323456\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a model instance by {{id}} from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-serverInfos/4888927410323456",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"count should be 0\"] = responseBody.has(\"0\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-serverInfos/count?where={\"uuid\": \"4888927410323456\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iib-terminalStats-Tests",
+			"description": "Folder for iib-terminalStats",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-terminalStats",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"invocations\":\"igha\",\n  \"term_label\":\"bimofu\",\n  \"term_type\":\"werehel\",\n  \"id\":33.27259833\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-terminalStats",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"invocations\":\"igha\",\n  \"term_label\":\"bimofu\",\n  \"term_type\":\"werehel\",\n  \"id\":33.27259833\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-terminalStats",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"invocations\":\"igha\",\n  \"term_label\":\"bimofu\",\n  \"term_type\":\"werehel\",\n  \"id\":33.27259833\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Contains invocations\"] = responseBody.has(\"invocations\");",
+									"    tests[\"Contains term_label\"] = responseBody.has(\"term_label\");",
+									"    tests[\"Contains term_type\"] = responseBody.has(\"term_type\");",
+									"    tests[\"Response time is less than 200ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-terminalStats?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether a model instance exists in the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Exists\"] = responseBody.has(\"true\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-terminalStats/igha/exists",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-terminalStats/count?where={\"invocations\": \"bimofu\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a model instance by {{id}} from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-terminalStats/igha",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"count should be 0\"] = responseBody.has(\"0\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-terminalStats/count?where={\"invocations\": \"bimofu\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iib-threadStats-Tests",
+			"description": "Folder for iib-threadStats",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}",
+									"",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-threadStats",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"input_msg_max_size\":\"rums\",\n\"input_msg_min_size\":\"jueghave\",\n\"input_msg_no\":\"ketnunug\",\n\"input_msg_total_size\":\"lami\",\n\"input_wait_cpu_time\":\"3:19\",\n\"input_wait_elapsed_time\":\"2:46\",\n\"threadId\":\"2012437651914752\",\n\"total_cpu_time\":\"19:25\",\n\"total_elapsed_time\":\"12:45\",\n\"id\":2.76871239\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-threadStats",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"input_msg_max_size\":\"rums\",\n\"input_msg_min_size\":\"jueghave\",\n\"input_msg_no\":\"ketnunug\",\n\"input_msg_total_size\":\"lami\",\n\"input_wait_cpu_time\":\"3:19\",\n\"input_wait_elapsed_time\":\"2:46\",\n\"threadId\":\"2012437651914752\",\n\"total_cpu_time\":\"19:25\",\n\"total_elapsed_time\":\"12:45\",\n\"id\":2.76871239\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-threadStats",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"input_msg_max_size\":\"rums\",\n\"input_msg_min_size\":\"jueghave\",\n\"input_msg_no\":\"ketnunug\",\n\"input_msg_total_size\":\"lami\",\n\"input_wait_cpu_time\":\"3:19\",\n\"input_wait_elapsed_time\":\"2:46\",\n\"threadId\":\"2012437651914752\",\n\"total_cpu_time\":\"19:25\",\n\"total_elapsed_time\":\"12:45\",\n\"id\":2.76871239\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Contains input_msg_max_size\"] = responseBody.has(\"input_msg_max_size\");",
+									"    tests[\"Contains input_msg_min_size\"] = responseBody.has(\"input_msg_min_size\");",
+									"    tests[\"Contains input_msg_no\"] = responseBody.has(\"input_msg_no\");",
+									"    tests[\"Contains input_msg_total_size\"] = responseBody.has(\"input_msg_total_size\");",
+									"    tests[\"Contains input_wait_cpu_time\"] = responseBody.has(\"input_wait_cpu_time\");",
+									"    tests[\"Contains input_wait_elapsed_time\"] = responseBody.has(\"input_wait_elapsed_time\");",
+									"    tests[\"Contains threadId\"] = responseBody.has(\"threadId\");",
+									"    tests[\"Contains total_cpu_time\"] = responseBody.has(\"total_cpu_time\");",
+									"    tests[\"Contains total_elapsed_time\"] = responseBody.has(\"total_elapsed_time\");",
+									"    tests[\"Response time is less than 200ms\"] = responseTime < 300;",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"    ",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}",
+									"",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-threadStats?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether a model instance exists in the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Exists\"] = responseBody.has(\"true\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-threadStats/2012437651914752/exists",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-threadStats/count?where={\"threadId\": \"2012437651914752\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a model instance by {{id}} from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-threadStats/2012437651914752",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"count should be 0\"] = responseBody.has(\"0\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/iib-threadStats/count?where={\"threadId\": \"2012437651914752\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mqmds-Tests",
+			"description": "Folder for mqmds",
+			"item": [
+				{
+					"name": "Create a new instance of the model and persist it into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Status code is 200 - successful POST\"] = responseCode.code === 200;",
+									"    tests[\"Status code is 409 - Duplicate conflict\"] = responseCode.code === 409;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/mqmds",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"accaccess-token\":\"5190224248562089\",\n  \"appOrigin\":\"canmuzge\",\n  \"appType\":\"maefcavi\",\n  \"appid\":\"1291945383034880\",\n  \"application\":\"apbiwene\",\n  \"boCount\":\"picohoc\",\n  \"ccsid\":\"5610552411769483\",\n  \"corrId\":\"1043078020333568\",\n  \"encoding\":\"betz\",\n  \"expiry\":\"02/2019\",\n  \"feedback\":\"pehohv\",\n  \"format\":\"megiezal\",\n  \"grpId\":\"3046608115597312\",\n  \"msgFlags\":\"nuhaje\",\n  \"msgId\":\"2580239383265280\",\n  \"msgLen\":\"vaejkue\",\n  \"msgType\":\"vaam\",\n  \"offset\":\"zidbe\",\n  \"persistence\":\"felodl\",\n  \"priority\":\"gefbo\",\n  \"replyQ\":\"uzures\",\n  \"replyQMgr\":\"bofo\",\n  \"report\":\"uklunti\",\n  \"seqno\":\"capukfo\",\n  \"timestamp\":\"927814712\",\n  \"user\":\"Samuel\",\n  \"version\":\"disgu\",\n  \"id\":78.52906636\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/mqmds",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"accaccess-token\":\"5190224248562089\",\n  \"appOrigin\":\"canmuzge\",\n  \"appType\":\"maefcavi\",\n  \"appid\":\"1291945383034880\",\n  \"application\":\"apbiwene\",\n  \"boCount\":\"picohoc\",\n  \"ccsid\":\"5610552411769483\",\n  \"corrId\":\"1043078020333568\",\n  \"encoding\":\"betz\",\n  \"expiry\":\"02/2019\",\n  \"feedback\":\"pehohv\",\n  \"format\":\"megiezal\",\n  \"grpId\":\"3046608115597312\",\n  \"msgFlags\":\"nuhaje\",\n  \"msgId\":\"2580239383265280\",\n  \"msgLen\":\"vaejkue\",\n  \"msgType\":\"vaam\",\n  \"offset\":\"zidbe\",\n  \"persistence\":\"felodl\",\n  \"priority\":\"gefbo\",\n  \"replyQ\":\"uzures\",\n  \"replyQMgr\":\"bofo\",\n  \"report\":\"uklunti\",\n  \"seqno\":\"capukfo\",\n  \"timestamp\":\"927814712\",\n  \"user\":\"Samuel\",\n  \"version\":\"disgu\",\n  \"id\":78.52906636\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch an existing model instance or insert a new one into the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"      tests[\"Contains _rev\"] = responseBody.has(\"_rev\");",
+									"      tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/mqmds",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"accaccess-token\":\"5190224248562089\",\n  \"appOrigin\":\"canmuzge\",\n  \"appType\":\"maefcavi\",\n  \"appid\":\"1291945383034880\",\n  \"application\":\"apbiwene\",\n  \"boCount\":\"picohoc\",\n  \"ccsid\":\"5610552411769483\",\n  \"corrId\":\"1043078020333568\",\n  \"encoding\":\"betz\",\n  \"expiry\":\"02/2019\",\n  \"feedback\":\"pehohv\",\n  \"format\":\"megiezal\",\n  \"grpId\":\"3046608115597312\",\n  \"msgFlags\":\"nuhaje\",\n  \"msgId\":\"2580239383265280\",\n  \"msgLen\":\"vaejkue\",\n  \"msgType\":\"vaam\",\n  \"offset\":\"zidbe\",\n  \"persistence\":\"felodl\",\n  \"priority\":\"gefbo\",\n  \"replyQ\":\"uzures\",\n  \"replyQMgr\":\"bofo\",\n  \"report\":\"uklunti\",\n  \"seqno\":\"capukfo\",\n  \"timestamp\":\"927814712\",\n  \"user\":\"Samuel\",\n  \"version\":\"disgu\",\n  \"id\":78.52906636\n  \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find all instances of the model matched by filter from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Contains accaccess-token\"] = responseBody.has(\"accaccess-token\");",
+									"    tests[\"Contains appOrigin\"] = responseBody.has(\"appOrigin\");",
+									"    tests[\"Contains appType\"] = responseBody.has(\"appType\");",
+									"    tests[\"Contains appid\"] = responseBody.has(\"appid\");",
+									"    tests[\"Contains accaccess-token\"] = responseBody.has(\"application\");",
+									"    tests[\"Contains boCount\"] = responseBody.has(\"boCount\");",
+									"    tests[\"Contains ccsid\"] = responseBody.has(\"ccsid\");",
+									"    tests[\"Contains corrId\"] = responseBody.has(\"corrId\");",
+									"    tests[\"Contains encoding\"] = responseBody.has(\"encoding\");",
+									"    tests[\"Contains expiry\"] = responseBody.has(\"expiry\");",
+									"    tests[\"Contains feedback\"] = responseBody.has(\"feedback\");",
+									"    tests[\"Contains format\"] = responseBody.has(\"format\");",
+									"    tests[\"Contains grpId\"] = responseBody.has(\"grpId\");",
+									"    tests[\"Contains id\"] = responseBody.has(\"id\");",
+									"    tests[\"Contains msgflags\"] = responseBody.has(\"msgFlags\");",
+									"    tests[\"Contains msgId\"] = responseBody.has(\"msgId\");",
+									"    tests[\"Contains msgLen\"] = responseBody.has(\"msgLen\");",
+									"    tests[\"Contains msgType\"] = responseBody.has(\"msgType\");",
+									"    tests[\"Contains offset\"] = responseBody.has(\"offset\");",
+									"    tests[\"Contains persistence\"] = responseBody.has(\"persistence\");",
+									"    tests[\"Contains priority\"] = responseBody.has(\"priority\");",
+									"    tests[\"Contains replyQ\"] = responseBody.has(\"replyQ\");",
+									"    tests[\"Contains replyQMgr\"] = responseBody.has(\"replyQMgr\");",
+									"    tests[\"Contains report\"] = responseBody.has(\"report\");",
+									"    tests[\"Contains seqno\"] = responseBody.has(\"seqno\");",
+									"    tests[\"Contains timestamp\"] = responseBody.has(\"timestamp\");",
+									"    tests[\"Contains user\"] = responseBody.has(\"user\");",
+									"    tests[\"Contains version\"] = responseBody.has(\"version\");",
+									"    ",
+									"}",
+									"",
+									"catch(e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/mqmds?filter={}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check whether a model instance exists in the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"Exists\"] = responseBody.has(\"true\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/mqmds/disgu/exists",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a model instance by {{id}} from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/mqmds/disgu",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"has count\"] = responseBody.has(\"1\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/mqmds/count?where={\"version\": \"disgu\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Count instances of the model matched by where from the data source.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try",
+									"{",
+									"    tests[\"count should be 0\"] = responseBody.has(\"0\");",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"}",
+									"",
+									"catch (e)",
+									"{",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "d16bac84-da6b-4005-b4b7-f6f43c33d10e",
+								"password": "C7dA2dI1nO8eC8cJ5pN4wG7aA1xU5lD6nG1xR4oA0tK0tD5mJ7",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.us.apiconnect.ibmcloud.com/ncsu-sr-design-proj-4-eeh-rest-security-api/sb/api/api/mqmds/count?where={\"version\": \"disgu\"}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"description": ""
+							},
+							{
+								"key": "X-IBM-Client-Id",
+								"value": "{{client-id}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
